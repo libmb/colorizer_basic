@@ -1,0 +1,6 @@
+/.cache
+/libmb_colorizer_basic.a
+/compile_commands.json
+/*.tmp
+/out
+/env.mk

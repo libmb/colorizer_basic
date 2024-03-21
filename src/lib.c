@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:44:55 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/03/20 01:06:35 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/03/22 01:07:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static t_local	find_node_and_offset(
 		}
 	}
 	return ((t_local){
-		&self->nodes[i],
-		&self->nodes[i + 1],
+		&self->nodes[0],
+		&self->nodes[1 % self->count],
 		0
 	});
 }
@@ -55,7 +55,7 @@ t_mb_colorizer_basic_color	mb_colorizer_basic(
 )
 {
 	const t_local	l
-		= find_node_and_offset(self, iteration_count / self->length);
+		= find_node_and_offset(self, iteration_count % self->length);
 	const float		ratio = (float)l.offset / (float)l.current_node->offset;
 
 	return ((t_mb_colorizer_basic_color){

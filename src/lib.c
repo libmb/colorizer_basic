@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 00:44:55 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2024/03/22 01:07:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2024/03/22 23:34:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,16 @@ static t_local	find_node_and_offset(
 )
 {
 	size_t	i;
-	size_t	sum;
 
-	sum = 0;
 	i = (size_t)-1;
 	while (++i < self->count)
 	{
-		sum += self->nodes[i].offset;
-		if (sum >= offset)
+		if (self->nodes[i].offset >= offset)
 		{
 			return ((t_local){
 				&self->nodes[i],
 				&self->nodes[(i + 1) % self->count],
-				offset - (sum - self->nodes[i].offset)
+				offset - (self->nodes[i].offset - self->nodes[i].offset)
 			});
 		}
 	}

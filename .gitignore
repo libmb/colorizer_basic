@@ -1,5 +1,7 @@
 /.cache
+/builddir
 /libmb_colorizer_basic.a
+/mb_colorizer_basic.lib
 /compile_commands.json
 /*.tmp
 /out
